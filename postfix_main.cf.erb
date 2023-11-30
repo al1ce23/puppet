@@ -1,0 +1,14 @@
+myhostname = <%= @myhostname %>
+relayhost = [<%= @relayhost %>]:587
+mynetworks = <%= @mynetworks %>
+smtp_sasl_mechanism_filter = login
+smtp_sasl_auth_enable = yes
+smtp_sasl_security_options =
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+sender_canonical_maps = regexp:/etc/postfix/sender_canonical
+smtpd_client_restrictions = permit_mynetworks, reject
+smtpd_relay_restrictions = permit_mynetworks, reject
+smtp_use_tls = yes
+smtp_tls_security_level = encrypt
+message_size_limit = <%= @message_size_limit %>
+default_process_limit = <%= @default_process_limit %>
